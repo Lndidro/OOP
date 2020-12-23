@@ -1,0 +1,51 @@
+using System;
+
+public class A{
+    public float a, b;
+    
+    public A(float a, float b){
+        this.a = a;
+        this.b = b;
+    }
+    
+    public float c1{
+        get{
+            return(a / b);
+        }
+    }
+    
+    public float c2{
+        get{
+            return(a - b);
+        }
+    }
+}
+    
+public class B : A{
+    private float d;
+        
+    public B(float a, float b, float d) : base(a, b){
+        this.d = d;
+    }
+        
+    public float c3{
+        get{
+            if (d >= 5.5){
+                return(d - b);
+            }
+            else{
+                return(d + a);
+            }
+        }
+    }
+}
+
+public class Programm{
+    static void Main(){
+        A obj1 = new A(8.63f, 13.38f);
+        B obj2 = new B(3.12f, 4.96f, 6.73f);
+        
+        Console.WriteLine($"Obj1:\nC1 = {obj1.c1}\nC2 = {obj1.c2}");
+        Console.WriteLine($"Obj2:\nC3 = {obj2.c3}");
+    }
+}
