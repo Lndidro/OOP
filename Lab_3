@@ -1,0 +1,61 @@
+using System;
+
+public class A{
+    public int a;
+    public float b;
+    
+    public A(int a, float b){
+        this.a = a;
+        this.b = b;
+    }
+    
+    public float c1{
+        get{
+            return(b / a);
+        }
+    }
+    
+    public float c2{
+        get{
+            return(b - a);
+        }
+    }
+}
+    
+public class B : A{
+    private float d;
+    public float[] arr;
+        
+    public B(int a, float b, float d) : this(b, a, d){
+        arr = new float[a];
+        for(int i = 0; i < arr.Length; i++){
+            arr[i] = c3 * i;
+        }
+    }
+    
+    public B(float b, int a, float d) : base(a, b){
+        this.d = d;
+    }
+        
+    public float c3{
+        get{
+            if (d >= 5.5){
+                return(d - b);
+            }
+            else{
+                return(d + a);
+            }
+        }
+    }
+}
+
+public class Programm{
+    static void Main(){
+        B obj2 = new B(6, 4.96f, 6.90f);
+        
+        Console.Write("Array: ");
+        foreach(float i in obj2.arr){
+            Console.Write($"\n{i}");
+        }
+    }
+}
