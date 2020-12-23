@@ -1,0 +1,88 @@
+using System;
+
+public class B{
+    public float[] arr1 = new[]{1.94f, 3.88f, 5.82f, 7.76f, 9.7f};
+    public int[] arr2 = new[]{1, 2, 3, 4, 5};
+    
+    public float this[int ind1]{
+        get{
+            return arr1[ind1];
+            
+        }
+        set{
+            arr1[ind1] = value;
+            
+        }
+    }
+    
+    public int this[int ind2, string plug]{
+        get{
+            return arr2[ind2];
+            
+        }
+        set{
+            arr2[ind2] = value;
+            
+        }
+    }
+}
+
+public class C<T>{
+    public T variable = default(T);
+    public static string banner = "╔═══════════════╗\n" +
+                                  "║ Hello, World! ║\n" +
+                                  "╚═══════════════╝\n";
+    
+    public void PrintBanner(){
+        Console.WriteLine(banner);
+    }
+}
+
+public class Programm{
+    static void Main(){
+        B bobj = new B();
+        
+        Console.WriteLine("Array1:");
+        foreach(float i in bobj.arr1){
+            Console.Write($"{i} ");
+        }
+        Console.WriteLine("\nArray2:");
+        foreach(int i in bobj.arr2){
+            Console.Write($"{i} ");
+        }
+        
+        C<string> cobj1 = new C<string>();
+        C<int> cobj2 = new C<int>();
+        
+        Console.WriteLine("\n\nOutput option via class:");
+		    Console.WriteLine("C<string>.banner");
+		    Console.WriteLine(C<string>.banner);
+        Console.WriteLine("C<int>.banner");
+		    Console.WriteLine(C<int>.banner);
+		
+		    Console.WriteLine("Output option via object:");
+		    Console.WriteLine("cobj1.PrintBanner();");
+		    cobj1.PrintBanner();
+		    Console.WriteLine("cobj2.PrintBanner();");
+		    cobj2.PrintBanner();
+		
+		    Console.WriteLine("Change banner on C<int> and check it");
+		
+		    C<int>.banner = "╔══════════════════╗\n" +
+                        "║ no Hello, World! ║\n" +
+                        "╚══════════════════╝\n";
+			
+		    Console.WriteLine("cobj1.PrintBanner();");
+		    cobj1.PrintBanner();
+		    Console.WriteLine("cobj2.PrintBanner();");
+		    cobj2.PrintBanner();
+		
+		    Console.WriteLine("Set values to variable and print it:");
+		    cobj1.variable = "ten";
+		    cobj2.variable = 10;
+		    Console.WriteLine("cobj1.variable");
+		    Console.WriteLine(cobj1.variable);
+		    Console.WriteLine("cobj2.variable");
+		    Console.WriteLine(cobj2.variable);
+    }
+}
