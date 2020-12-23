@@ -1,0 +1,26 @@
+using System;
+
+class A{
+    private float a = 4;
+    private float b = 7;
+    
+    public float c1{
+        get{
+            return(a/b);
+        }
+    }
+    
+    public float c2{
+        get{
+            return(a-b);
+        }
+    }
+}
+
+public class Programm{
+    static void Main(){
+        A O = new A();
+        System.Console.WriteLine($"Obj1 = {O.c1}");
+        System.Console.WriteLine($"Obj2 = {O.c2}");
+    }
+}
